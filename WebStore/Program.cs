@@ -24,6 +24,10 @@ app.MapGet("/throw", () =>
     throw new ApplicationException("Ошибка в программе!");
 });
 
-app.MapDefaultControllerRoute(); //Сиситема MVC
+//app.MapDefaultControllerRoute(); //Сиситема MVC   //Использование вызова контроллера по умолчанию
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=index}/{id?}"); //явный вызов контроллера
 
 app.Run();
